@@ -4,7 +4,7 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //get operation from user
             string operation = "";
@@ -17,59 +17,65 @@ namespace ConsoleApp1
 
             //get number inputs from user
             Console.WriteLine("Please enter the first number");
-            int numA = int.Parse(Console.ReadLine());
+            float numA = float.Parse(Console.ReadLine());
             Console.WriteLine("Please enter the second number");
-            int numB = int.Parse(Console.ReadLine());
+            float numB = float.Parse(Console.ReadLine());
+
+            //var for result
+            float result = 0;
 
             //based on operator input, run the appropriate method on the two numbers
             if(operation == "add")
             {
-                Add(numA, numB);
+                result = Add(numA, numB);
             }
             else if(operation == "subtract")
             {
-                Subtract(numA, numB);
+                result = Subtract(numA, numB);
             }
             else if(operation == "multiply")
             {
-                Multiply(numA, numB);
+                result = Multiply(numA, numB);
             }
             else if(operation == "divide")
             {
-                Divide(numA, numB);
+                result = Divide(numA, numB);
             }
+
+            //write line with answer
+            Console.WriteLine($"The answer is {result}");
+            Main();
         }
 
         //addition function
-        public static void Add(int x, int y)
+        public static float Add(float x, float y)
         {
             //simple math to get the sum
-            int result = x + y;
-            //writing result in console
-            Console.WriteLine($"The sum of {x} and {y} is {result}");
+            float result = x + y;
+            return result;
         }
 
         //the other 3 functions work similarly
 
         //subtract function
-        public static void Subtract(int x, int y)
+        public static float Subtract(float x, float y)
         {
-            int result = x - y;
-            Console.WriteLine($"The difference of {x} and {y} is {result}");
+            float result = x - y;
+            return result;
         }
 
         //subtract function
-        public static void Multiply(int x, int y)
+        public static float Multiply(float x, float y)
         {
-            int result = x * y;
-            Console.WriteLine($"The product of {x} and {y} is {result}");
+            float result = x * y;
+            return result;
         }
 
         //subtract function
-        public static void Divide(float x, float y)
+        public static float Divide(float x, float y)
         {
             float result = x / y;
-            Console.WriteLine($"The quotient of {x} and {y} is {result}");
+            return result;
         }
     }
 }
